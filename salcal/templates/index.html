@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="mt-5">Salary Calculator</h1>
+    <p><i>Salary Calculator</i> is a simple program that will help you calculate your salary from an hourly rate. To get
+        started, enter your hourly rate, select the pay period, and click <i>Calculate.</i></p>
+    <h2 class="mt-4">Rate and Period</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="hourly-rate">Enter your hourly rate</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                </div>
+                <input class="form-control" id="hourly-rate" type="text" placeholder="Hourly Rate" name="hourly-rate"
+                       value="{{ request.form['hourly-rate'] }}">
+            </div>
+            {% if error_state %}
+                <div class="mt-2 alert alert-danger" role="alert"><strong>Whoops!</strong>&nbsp;Your entry is invalid.</div>
+            {% else %}
+            {% endif %}
+            <div class="form-group">
+                <label for="pay-period">Select the pay period</label>
+                <select class="form-control" id="pay-period" name="pay-period">
+                        <option {% if pay_period=='weekly' %} selected {% endif %}>Weekly</option>
+                        <option {% if pay_period=='semi-monthly' %} selected {% endif %}>Semi-monthly</option>
+                        <option {% if pay_period=='biweekly' %} selected {% endif %}>Biweekly</option>
+                        <option {% if pay_period=='monthly' %} selected {% endif %}>Monthly</option>
+                        <option {% if pay_period=='annual' %} selected {% endif %}>Annual</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-calculator"></i>&nbsp;Calculate</button>
+    </form>
+    <h2 class="mt-4">Salary</h2>
+    <div class="form-group">
+        <label for="hourly-rate-output">Your {{ pay_period }} salary:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">$</div>
+            </div>
+            <input class="form-control" id="hourly-rate-output" type="text" name="hourly-rate-output" value="{{ salary }}" disabled>
+        </div>
+    </div>
+{% endblock %}

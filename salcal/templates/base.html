@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://kit.fontawesome.com/1567f8443c.js" crossorigin="anonymous"></script>
+    <!--Chart Bar Icon (SVG) for the favicon used and modified with permission from Font Awesome under Creative Commons, see https://fontawesome.com/license-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Salary Calculator</title>
+    {% endif %}
+</head>
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-dark"><span class="navbar-brand mb-0 h1">SalCal</span></nav>
+    <div class="container height-full">
+        {% block content %}{% endblock %}
+    </div>
+<footer class="footer mt-auto py-3">
+     <div class="container text-center font-weight-light"><span class="text-white-50">&copy; 2019 Omar L&oacute;pez</span></div>
+</footer>
+</body>
+</html>

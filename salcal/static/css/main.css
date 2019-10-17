@@ -1,0 +1,28 @@
+/*Change the color of the navbar*/
+body nav {
+    background-color: #2f416d;
+}
+/*Change the color of the primary buttons*/
+.btn-primary {
+    color: #fff;
+    background-color: #2f416d;
+    border-color: #2f416d;
+}
+/*Change the actions over the primary button*/
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:visited {
+    background-color: #3F88C5 !important;
+    border-color: #3F88C5 !important;
+}
+/*Disable the output field*/
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+/*Change the color of the navbar checkbox*/
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #3F88C5;
+    background-color: #3F88C5;
+}
+footer {
+    background-color: #45547a;
+}
